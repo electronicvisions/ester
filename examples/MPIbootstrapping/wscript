@@ -1,0 +1,39 @@
+#!/usr/bin/env python
+import sys, os
+
+APPNAME='graph'
+
+
+
+def options(opt):
+    opt.load('compiler_cxx')
+
+def configure(cfg):
+    cfg.load('compiler_cxx')
+
+    cfg.env.INCLUDES_SPAWN = '/usr/include/mpi'
+    cfg.env.LIB_SPAWN = ['mpi', 'mpi_cxx', 'boost_mpi', 'boost_graph_parallel', 'boost_system', 'boost_serialization']
+    #cfg.env.LIB_SPAWN = ['mpi', 'mpich', 'mpichcxx', 'boost_mpi', 'boost_graph_parallel', 'boost_system', 'boost_serialization']
+    cfg.env.CXXFLAGS_SPAWN = [ '-g']
+
+def build(bld):
+    bld(
+        target         = 'server',
+        features       = 'cxx cprogram',
+        source         = 'server.cpp common.cpp',
+        use            = 'SPAWN',
+    )
+
+    bld(
+        target         = 'client',
+        features       = 'cxx cprogram',
+        source         = 'client.cpp common.cpp',
+        use            = 'SPAWN',
+    )
+
+    bld(
+        target         = 'spawn',
+        features       = 'cxx cprogram',
+        source         = 'spawn.cpp common.cpp',
+        use            = 'SPAWN',
+    )

@@ -1,0 +1,23 @@
+#!/usr/bin/env python
+
+def options(opt):
+    opt.load('boost')
+
+def configure(cfg):
+    cfg.load('boost')
+    cfg.load("compiler_cxx")
+
+    # check MPI (works only for OpenMPI)
+    cfg.check_cfg(path = 'mpicxx', args = '--showme:compile',
+            package = '', uselib_store = 'MPI4MPICONFIG')
+    cfg.check_cfg(path = 'mpicxx', args = '--showme:link',
+            package = '', uselib_store = 'MPI4MPICONFIG')
+
+    cfg.check_boost(lib='serialization system mpi',
+            uselib_store='BOOST4MPICONFIG')
+
+def build(bld):
+    bld(target = 'mpiconfig',
+        use = ['MPI4MPICONFIG', 'BOOST4MPICONFIG'],
+        defines         = ['__ESTER_MPI__'],
+        export_includes = '..')

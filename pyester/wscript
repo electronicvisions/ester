@@ -1,0 +1,53 @@
+#!/usr/bin/env python
+
+
+def depends(ctx):
+    ctx('euter')
+    ctx('pywrap')
+    ctx('lib-boost-patches')
+
+
+def options(opt):
+    opt.load('compiler_cxx')
+    opt.load('python')
+    opt.load('pytest')
+    opt.load('pypp')
+    opt.load('boost')
+
+
+def configure(cfg):
+    cfg.load('compiler_cxx')
+    cfg.load('python')
+    cfg.load('pytest')
+    cfg.load('pypp')
+    cfg.load('boost')
+
+
+def build(bld):
+
+    bld(
+        target          = 'pyester_inc',
+        export_includes = '..',
+    )
+
+    bld(
+        target          = 'pyester_obj',
+        features        = 'cxx cxxshlib',
+        source          =  bld.path.ant_glob('*.cpp'),
+        use             = [
+            'euter_inc',
+            'pyester_inc',
+            'boost_serialization' # our patched one from boost-python...
+        ],
+        install_path    = '${PREFIX}/lib'
+    )
+
+    bld(
+        target         = 'pyester',
+        features       = 'cxx pypp cxxshlib pyext pyembed',
+        use            = ['pyester_obj'],
+        script          = 'generate.py',
+        gen_defines     = 'PYPLUSPLUS __STRICT_ANSI__',
+        headers         = 'bindings.h',
+        install_path   = '${PREFIX}/lib',
+    )

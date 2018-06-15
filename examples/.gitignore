@@ -1,0 +1,11 @@
+# exclude everything
+/*
+
+# except for:
+!/.gitignore
+!/Makefile
+!/generate.py
+!/hello.py
+!/hello_world.cpp
+!/hello_world.h
+!/test.py
