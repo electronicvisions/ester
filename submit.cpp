@@ -20,7 +20,6 @@ void submit(ObjectStore& local)
 
     // this function blocks, until everything is over
     ObjectStore remote = ex.ReceiveResults(handle);
-    std::cout << "ester.submit() received results from ester server" << std::endl;
 
     // check the result
     local.check();
