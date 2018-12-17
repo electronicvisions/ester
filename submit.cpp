@@ -4,6 +4,7 @@
 // include from ester
 #include "experiment.h"
 
+using namespace euter;
 
 void submit(ObjectStore& local)
 {

@@ -1,5 +1,7 @@
 #pragma once
 
+namespace euter {
 class ObjectStore;
+}
 
-void submit(ObjectStore& local);
+void submit(euter::ObjectStore& local);

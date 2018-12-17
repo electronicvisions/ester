@@ -4,6 +4,8 @@
 #include <boost/make_shared.hpp>
 #include "marocco/mapping.h"
 
+using namespace euter;
+
 boost::shared_ptr<ObjectStore> gMapResult;
 #else
 #include "jobmgrif.h"

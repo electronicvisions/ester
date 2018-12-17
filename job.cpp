@@ -1,6 +1,7 @@
 #include "job.h"
 
 namespace mpi = boost::mpi;
+using namespace euter;
 
 char const* Job::state_name[] = {
 	"UNINITIALIZED",

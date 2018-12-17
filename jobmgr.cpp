@@ -17,6 +17,7 @@
 
 namespace mpi = boost::mpi;
 using namespace std;
+using namespace euter;
 
 size_t                     n_processes_per_spawn;
 size_t                     n_concurrent_job_starter;

@@ -14,7 +14,7 @@ public:
 	{}
 
 	int error;
-	boost::shared_ptr<ObjectStore> store;
+	boost::shared_ptr<euter::ObjectStore> store;
 
 private:
 	friend class boost::serialization::access;

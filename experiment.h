@@ -42,10 +42,10 @@ struct Experiment
 
 	// Asynchronous execution
 	job_handle_t Submit(
-		const ObjectStore & store,
+		const euter::ObjectStore & store,
 		std::function<void(state_t, double)> progress = NoopProgress());
 
-	ObjectStore ReceiveResults(job_handle_t job);
+	euter::ObjectStore ReceiveResults(job_handle_t job);
 
 	// Block with timeout
 	Results GetResults();

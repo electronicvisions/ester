@@ -80,7 +80,7 @@ public:
 	JobManager& operator= (JobManager const&) = delete;
 	~JobManager();
 
-	job_handle_t createJob(ObjectStore&& os);
+	job_handle_t createJob(euter::ObjectStore&& os);
 
 	Job const& getJob(job_handle_t handle);
 

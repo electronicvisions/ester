@@ -11,6 +11,7 @@
 #include "pynn/api.h"
 
 using namespace std;
+using namespace euter;
 
 int main(int /*argc*/, char** /*argv*/) {
 

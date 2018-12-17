@@ -20,13 +20,13 @@ public:
 
 	static char const*    state_name[];
 
-	Job(job_handle_t handle, ObjectStore && os);
+	Job(job_handle_t handle, euter::ObjectStore && os);
 	Job(Job const&) = delete;
 	Job(Job&&)      = delete;
 	Job()           = delete;
 	~Job();
 
-	ObjectStore& objectstore() const;
+	euter::ObjectStore& objectstore() const;
 
 	state_t&         state();
 	state_t          state() const;
@@ -48,7 +48,7 @@ public:
 private:
 	// members:
 
-	mutable ObjectStore                    mObjectStore;
+	mutable euter::ObjectStore             mObjectStore;
 	job_handle_t const                     mHandle;
 	state_t                                mState;
 	mutable boost::mpi::intercommunicator  mComm;

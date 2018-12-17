@@ -4,6 +4,8 @@
 
 #include "jobmgr.h"
 
+using namespace euter;
+
 job_handle_t JobManagerInterface::createJob(ObjectStore os)
 {
 	std::cout << "got experiment from user with " << os.size()

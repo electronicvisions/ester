@@ -5,7 +5,7 @@
 #include "euter/metadata.h"
 #include "pyester/Server.h"
 
-class PyEster : public DerivedMetaData<PyEster>
+class PyEster : public euter::DerivedMetaData<PyEster>
 {
 public:
 	Server settings;
