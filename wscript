@@ -7,7 +7,7 @@ def depends(ctx):
     ctx('ester', 'pyester')
     if ctx.options.with_ester:
         # w/ communication between layers
-        ctx('lib-rcf', branch='v2')
+        ctx('lib-rcf')
     else:
         # directly linked to marocco (and leave out rcf stuff too)
         ctx('marocco')
