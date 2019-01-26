@@ -1,7 +1,6 @@
 #include "experiment.h"
 
 #ifdef __ESTER_BREACHED__
-#include <mpi.h>
 #include <boost/make_shared.hpp>
 #include "marocco/mapping.h"
 
