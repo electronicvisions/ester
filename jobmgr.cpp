@@ -212,7 +212,7 @@ void JobManager::start_new_jobs()
 			}
 
 			// start spawn in it's own thread
-			async(launch::async, std::bind(&JobManager::spawn, ref(*this), ref(job)));
+			[[maybe_unused]] auto handle = async(launch::async, std::bind(&JobManager::spawn, ref(*this), ref(job)));
 			//async(launch::async, std::bind(&JobManager::spawn, ref(*this), placeholders::_1), job);
 			//spawn(job);
 
